@@ -36,14 +36,10 @@ int main() {
     int *a, *b, *c;
     int *device_a, *device_b, *device_c;
 
-    // allocate space on GPU
+    // allocate memory on CPU
     a = (int *)malloc(SIZE*sizeof(int));
     b = (int *)malloc(SIZE*sizeof(int));
     c = (int *)malloc(SIZE*sizeof(int));
-    // allocate space on CPU
-    cudaMalloc(&device_a, SIZE*sizeof(int));
-    cudaMalloc(&device_b, SIZE*sizeof(int));
-    cudaMalloc(&device_c, SIZE*sizeof(int));
 
     // initialize data
     for (int i=0; i<SIZE; i++) {
@@ -51,6 +47,11 @@ int main() {
         b[i]=i;
         c[i]=0;
     }
+
+    // allocate memory on GPU
+    cudaMalloc(&device_a, SIZE*sizeof(int));
+    cudaMalloc(&device_b, SIZE*sizeof(int));
+    cudaMalloc(&device_c, SIZE*sizeof(int));
 
     // copy initialized data to the GPU
     // cudaMemcpy(destination, source, nr of bytes, direction)
