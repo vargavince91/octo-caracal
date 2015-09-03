@@ -36,7 +36,7 @@ int main() {
     int *a, *b, *c;
     int *device_a, *device_b, *device_c;
 
-    // allocate memory on CPU
+    // allocate memory on CPU (host)
     a = (int *)malloc(SIZE*sizeof(int));
     b = (int *)malloc(SIZE*sizeof(int));
     c = (int *)malloc(SIZE*sizeof(int));
@@ -48,7 +48,7 @@ int main() {
         c[i]=0;
     }
 
-    // allocate memory on GPU
+    // allocate memory on GPU (device)
     cudaMalloc(&device_a, SIZE*sizeof(int));
     cudaMalloc(&device_b, SIZE*sizeof(int));
     cudaMalloc(&device_c, SIZE*sizeof(int));
