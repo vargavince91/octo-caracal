@@ -3,7 +3,7 @@
 
 #define SIZE 1024
 
-/* $ nvcc 02-VectorAdd.cu -o 02-VectorAdd.out */
+/* $ nvcc 02-VectorAdd.cu -o 02-VectorAdd.out && ./02-VectorAdd.out */
 
 /* Source:
  * Channel - NVIDIADeveloper - https://www.youtube.com/user/NVIDIADeveloper
@@ -15,10 +15,6 @@
 // 2/a. allocate memory on the GPU
 // 2/b. move our data over
 // 3. modify function call in order to enable to launch on the GPU
-
-
-
-
 
 // __global__ // it tells the compiler that this function is going to be executed on the GPU and it's callable from the host
 __global__ void VectorAdd(int *a, int *b, int *c, int n) {
